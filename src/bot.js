@@ -5,7 +5,10 @@ const { Client } = require('discord.js');
 const bot = new Client();
 
 (async function () {
-  await bot.login(process.env.DISCORD_BOT_TOKEN);
+  await bot.login(process.env.DISCORD_BOT_TOKEN)
+  .catch(err => {
+    console.log(`token not found`)
+  })
 
   bot.on('ready', () => {
     console.log(`Bot ${bot.user.username} is active`);
